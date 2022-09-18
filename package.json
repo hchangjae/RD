@@ -1,0 +1,29 @@
+{
+  "name": "rd",
+  "version": "1.0.0",
+  "description": "Random defense",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hchangjae/RD.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hchangjae/RD/issues"
+  },
+  "homepage": "https://github.com/hchangjae/RD#readme",
+  "dependencies": {
+    "phaser": "^3.55.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.3",
+    "vite": "^3.1.1",
+    "vite-tsconfig-paths": "^3.5.0"
+  }
+}

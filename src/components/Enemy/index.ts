@@ -25,7 +25,7 @@ export default class Enemy extends GameObjects.PathFollower {
 
     super(scene, path, x, y, '', 0)
 
-    this.startFollow({ duration: MOVE_DURATION + Math.random() * 1000, loop: -1 })
+    this.startFollow({ duration: MOVE_DURATION, loop: -1 })
 
     this.defensePower = defensePower
     this.hp = this.hpMax = hp

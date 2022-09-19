@@ -1,3 +1,6 @@
+import { LOCATION_PADDING } from '@/constant/tower'
+import { randomWithPadding } from '@/utils/numberUtils'
+import { getWH } from '@/utils/sceneUtils'
 import { GameObjects, Scene } from 'phaser'
 import Enemy from '../Enemy'
 import Weapon from './Weapon'
@@ -5,8 +8,7 @@ import Weapon from './Weapon'
 export type TowerProps = {
   scene: Scene
   weapon: Weapon
-  x: number
-  y: number
+  size: number
 }
 
 export default class Tower extends GameObjects.Rectangle {
@@ -18,9 +20,11 @@ export default class Tower extends GameObjects.Rectangle {
       throw new TypeError('Cannot construct Abstract instances directly')
     }
 
-    const { scene, weapon, x, y } = props
+    const { scene, weapon, size } = props
+    const [width, height] = getWH(scene)
+    const [x, y] = [width * randomWithPadding(LOCATION_PADDING), height * randomWithPadding(LOCATION_PADDING)]
 
-    super(scene, x, y, 100, 100, 0xffffff)
+    super(scene, x, y, size, size, 0xffffff, 0.4)
 
     this.weapon = weapon
     this.target = null

@@ -1,17 +1,11 @@
 import Phaser from 'phaser'
-import create from './scene/create'
-import preload from './scene/preload'
-import update from './scene/update'
+import MainScene from './scene/main'
 
-const config = {
+const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   width: 800,
   height: 600,
-  scene: {
-    preload: preload,
-    create: create,
-    update: update,
-  },
+  scene: [MainScene],
 }
 
 new Phaser.Game(config)

@@ -7,6 +7,7 @@ export type WaveProps = {
   scene: Scene
   path: Curves.Path
   duration: number
+  rewardCount: number
   deathCount: number
   enemyCount: number
   enemyType: ConcreteEnemy
@@ -20,17 +21,19 @@ export default class Wave {
   protected enemyCount: number
 
   readonly deathCount: number
+  readonly rewardCount: number
 
   private timer: number
 
   constructor(props: WaveProps) {
-    const { scene, path, deathCount, duration, enemyType, enemyCount } = props
+    const { scene, path, deathCount, duration, enemyType, enemyCount, rewardCount } = props
     this.path = path
     this.scene = scene
     this.duration = duration
     this.deathCount = deathCount
     this.enemyType = enemyType
     this.enemyCount = enemyCount
+    this.rewardCount = rewardCount
     this.timer = 0
   }
 
@@ -50,6 +53,6 @@ export default class Wave {
 
   update(time: number, delta: number) {
     this.timer += delta
-    this.duration -= delta
+    this.duration -= delta / 1000
   }
 }

@@ -1,8 +1,11 @@
+import { useSetter } from '@/store'
+import { deathCountState } from '@/store/atom/deathCount'
 import { Curves, GameObjects, Scene } from 'phaser'
 import Enemy from '../Enemy'
 import Mob1 from '../Enemy/mob1'
 import Mob2 from '../Enemy/mob2'
 import { ConcreteEnemy } from '../Enemy/Type'
+import ATower from '../Tower/normal/ATower'
 import Wave, { WaveProps } from './Wave'
 
 type WaveConfig = {
@@ -10,6 +13,7 @@ type WaveConfig = {
   duration: number
   enemyType: ConcreteEnemy
   enemyCount: number
+  rewardCount: number
 }
 
 type WaveManagerProps = {
@@ -53,6 +57,13 @@ export default class WaveManager extends GameObjects.Container {
   nextWave() {
     if (this.isLastWave()) return
 
+    if (this.now) {
+      const rewardCount = this.now.rewardCount
+      new Array(rewardCount).fill(null).forEach(() => {
+        this.scene.add.existing(new ATower({ scene: this.scene }))
+      })
+    }
+
     const waveConfig = this.waveConfigList[this.index]
     const waveProps: WaveProps = {
       scene: this.scene,
@@ -61,10 +72,14 @@ export default class WaveManager extends GameObjects.Container {
       duration: waveConfig.duration,
       enemyCount: waveConfig.enemyCount,
       enemyType: waveConfig.enemyType,
+      rewardCount: waveConfig.rewardCount,
     }
 
     this.now = new Wave(waveProps)
     this.index += 1
+
+    const setDeathCount = useSetter(deathCountState)
+    setDeathCount(this.now.deathCount)
   }
 
   isDeathCountOver() {
@@ -91,6 +106,8 @@ export default class WaveManager extends GameObjects.Container {
 }
 
 export const testWaveConfigList: WaveConfig[] = [
-  { deathCount: 60, duration: 10000, enemyCount: 8, enemyType: Mob1 },
-  { deathCount: 60, duration: 10000, enemyCount: 8, enemyType: Mob2 },
+  { deathCount: 60, duration: 9, enemyCount: 8, enemyType: Mob1, rewardCount: 5 },
+  { deathCount: 60, duration: 9, enemyCount: 8, enemyType: Mob2, rewardCount: 5 },
+  { deathCount: 60, duration: 9, enemyCount: 8, enemyType: Mob2, rewardCount: 5 },
+  { deathCount: 60, duration: 9, enemyCount: 8, enemyType: Mob2, rewardCount: 5 },
 ]

@@ -1,5 +1,5 @@
 import { Curves, Scene } from 'phaser'
-import Enemy from '.'
+import Enemy from '@/components/Enemy'
 
 export type Mob2Props = {
   scene: Scene

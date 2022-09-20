@@ -1,7 +1,7 @@
 import { TOWER_GRADE } from '@/constant/tower'
-import Tower, { TowerProps } from '../index'
-import Common from '../Weapon/Common'
-import { ATTACK_RATE } from '../Weapon/index'
+import Tower, { TowerProps } from '@/components/Tower'
+import Common from '@/components/Weapon/Common'
+import { ATTACK_RATE } from '@/components/Weapon'
 
 type NTowerProps = Omit<TowerProps, 'weapon' | 'size' | 'grade'>
 

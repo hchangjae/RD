@@ -3,7 +3,7 @@ import { useValue } from '@/store'
 import { deathCountState } from '@/store/atom/deathCount'
 import { getByType, getWH } from '@/utils/sceneUtils'
 import { GameObjects, Scene } from 'phaser'
-import Enemy from './Enemy'
+import Enemy from '@/components/Enemy'
 
 const createText = (enemyCount: number, deathCount: number) => `👻 ${enemyCount} < ${deathCount}`
 

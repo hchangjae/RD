@@ -17,7 +17,7 @@ export default class MTower extends Tower {
 
     const towerProps = {
       scene: scene,
-      grade: TOWER_GRADE.NORMAL,
+      grade: TOWER_GRADE.RARE,
       weapon,
       size: 20,
     }

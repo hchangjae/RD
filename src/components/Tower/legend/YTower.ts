@@ -17,7 +17,7 @@ export default class YTower extends Tower {
 
     const towerProps = {
       scene: scene,
-      grade: TOWER_GRADE.NORMAL,
+      grade: TOWER_GRADE.LEGEND,
       weapon,
       size: 20,
     }

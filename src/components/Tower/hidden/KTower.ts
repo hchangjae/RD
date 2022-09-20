@@ -17,7 +17,7 @@ export default class KTower extends Tower {
 
     const towerProps = {
       scene: scene,
-      grade: TOWER_GRADE.NORMAL,
+      grade: TOWER_GRADE.HIDDEN,
       weapon,
       size: 20,
     }

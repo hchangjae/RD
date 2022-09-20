@@ -17,7 +17,7 @@ export default class JTower extends Tower {
 
     const towerProps = {
       scene: scene,
-      grade: TOWER_GRADE.NORMAL,
+      grade: TOWER_GRADE.ELITE,
       weapon,
       size: 20,
     }

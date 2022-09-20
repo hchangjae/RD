@@ -17,7 +17,7 @@ export default class RTower extends Tower {
 
     const towerProps = {
       scene: scene,
-      grade: TOWER_GRADE.NORMAL,
+      grade: TOWER_GRADE.EPIC,
       weapon,
       size: 20,
     }

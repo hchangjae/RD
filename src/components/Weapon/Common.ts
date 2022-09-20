@@ -1,4 +1,4 @@
-import Weapon, { WeaponProps } from './index'
+import Weapon, { WeaponProps } from '@/components/Weapon/index'
 
 type CommonProps = WeaponProps & {}
 

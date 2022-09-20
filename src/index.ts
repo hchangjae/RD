@@ -1,6 +1,6 @@
+import MainScene from '@/scene/main'
+import UIScene from '@/scene/ui'
 import Phaser from 'phaser'
-import MainScene from './scene/main'
-import UIScene from './scene/ui'
 
 const width = Math.min(window.innerWidth, window.innerHeight, 700) * 0.8
 

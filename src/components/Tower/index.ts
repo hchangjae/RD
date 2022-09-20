@@ -1,10 +1,10 @@
+import Enemy from '@/components/Enemy'
+import Weapon from '@/components/Weapon'
 import { EVENT } from '@/constant/event'
 import { LOCATION_PADDING, TOWER_GRADE } from '@/constant/tower'
 import { randomWithPadding } from '@/utils/numberUtils'
 import { getWH } from '@/utils/sceneUtils'
 import { GameObjects, Scene } from 'phaser'
-import Enemy from '../Enemy'
-import Weapon from './Weapon'
 
 export type TowerProps = {
   scene: Scene

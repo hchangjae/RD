@@ -1,12 +1,12 @@
 import { useSetter } from '@/store'
 import { deathCountState } from '@/store/atom/deathCount'
 import { Curves, GameObjects, Scene } from 'phaser'
-import Enemy from '../Enemy'
-import Mob1 from '../Enemy/mob1'
-import Mob2 from '../Enemy/mob2'
-import { ConcreteEnemy } from '../Enemy/Type'
-import ATower from '../Tower/normal/ATower'
-import Wave, { WaveProps } from './Wave'
+import Enemy from '@/components/Enemy'
+import Mob1 from '@/components/Enemy/mob1'
+import Mob2 from '@/components/Enemy/mob2'
+import { ConcreteEnemy } from '@/components/Enemy/Type'
+import Wave, { WaveProps } from '@/components/WaveManager/Wave'
+import ATower from '@/components/Tower/normal/ATower'
 
 type WaveConfig = {
   deathCount: number

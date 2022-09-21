@@ -41,7 +41,7 @@ export default class Weapon {
   }
 
   fire() {
-    this.timer = 0
+    this.timer -= ATTACK_DELAY * this.rate
     return this.power
   }
 

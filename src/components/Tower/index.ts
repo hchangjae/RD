@@ -68,6 +68,7 @@ export default class Tower extends GameObjects.Rectangle {
       this.dx = Math.random() * 100 - 50
       this.dy = Math.random() * 100 - 50
     }
+
     // physics
     const move = () => {
       this.x += (this.dx * delta) / 1000

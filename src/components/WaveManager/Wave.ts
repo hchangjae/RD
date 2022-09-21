@@ -46,7 +46,7 @@ export default class Wave {
   }
 
   spawn() {
-    this.timer = 0
+    this.timer -= SPAWN_DELAY
     this.enemyCount -= 1
     return new this.enemyType({ path: this.path, scene: this.scene })
   }

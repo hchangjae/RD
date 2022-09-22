@@ -1,1 +1,1 @@
-export const ATTACK_DELAY = 1000
+export const ATTACK_DELAY = 100

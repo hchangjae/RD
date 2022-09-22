@@ -7,6 +7,7 @@ import Mob2 from '@/components/Enemy/mob2'
 import { ConcreteEnemy } from '@/components/Enemy/type'
 import Wave, { WaveProps } from '@/components/WaveManager/Wave'
 import ATower from '@/components/Tower/normal/ATower'
+import { getByType } from '@/utils/sceneUtils'
 
 type WaveConfig = {
   deathCount: number
@@ -101,13 +102,31 @@ export default class WaveManager extends GameObjects.Container {
       this.nextWave()
     }
 
+    const enemyCount = getByType(this.scene, Enemy).length
+    if (enemyCount > this.now.deathCount) {
+      console.log('game over')
+    }
+
     wave.update(time, delta)
   }
 }
 
 export const testWaveConfigList: WaveConfig[] = [
-  { deathCount: 60, duration: 9, enemyCount: 8, enemyType: Mob1, rewardCount: 5 },
-  { deathCount: 60, duration: 9, enemyCount: 8, enemyType: Mob2, rewardCount: 5 },
-  { deathCount: 60, duration: 9, enemyCount: 8, enemyType: Mob2, rewardCount: 5 },
-  { deathCount: 60, duration: 9, enemyCount: 8, enemyType: Mob2, rewardCount: 5 },
+  { deathCount: 60, duration: 10, enemyCount: 7, enemyType: Mob1, rewardCount: 1 },
+  { deathCount: 60, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
+  { deathCount: 60, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
+  { deathCount: 60, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
+  { deathCount: 60, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
+
+  { deathCount: 40, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
+  { deathCount: 40, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
+  { deathCount: 40, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
+  { deathCount: 40, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
+  { deathCount: 40, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
+
+  { deathCount: 20, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
+  { deathCount: 20, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
+  { deathCount: 20, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
+  { deathCount: 20, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
+  { deathCount: 20, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
 ]

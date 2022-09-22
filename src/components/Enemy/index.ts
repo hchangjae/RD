@@ -1,4 +1,6 @@
 import Debuff from '@/components/Debuff'
+import Slow, { isSlowDebuff } from '@/components/Debuff/Slow'
+import Stun, { isStunDebuff } from '@/components/Debuff/Stun'
 import { DEFENSE_POWER_BASE, HP_RADIUS, MOVE_DURATION } from '@/constant/enemy'
 import { filterDuplicate } from '@/utils/arrayUtils'
 import { Curves, GameObjects, Scene } from 'phaser'
@@ -34,7 +36,7 @@ export default class Enemy extends GameObjects.PathFollower {
     this.hp = this.hpMax = hp
     this.debuffs = []
 
-    this.graphics = this.scene.add.graphics({ x: 0, y: 0, lineStyle: { color: 0x00ff00, width: 2.5 } })
+    this.graphics = this.scene.add.graphics({ x: 0, y: 0 })
     this.visible = false
   }
 
@@ -50,12 +52,14 @@ export default class Enemy extends GameObjects.PathFollower {
 
   spellDebuff(debuff: Debuff) {
     const keySelector = (v: Debuff) => v.type
-    this.debuffs = filterDuplicate([debuff, ...this.debuffs], keySelector)
+    this.debuffs = filterDuplicate([...this.debuffs, debuff], keySelector)
   }
 
   update(time: number, delta: number): void {
     this.graphics.clear()
-    this.graphics.strokeCircle(this.x, this.y, HP_RADIUS)
+    this.graphics.lineStyle(1, 0xff0000)
+    this.graphics.strokeCircle(this.x, this.y, HP_RADIUS / 10)
+    this.graphics.fillStyle(0xffffff, 0.3)
     this.graphics.fillCircle(this.x, this.y, (HP_RADIUS * this.hp) / this.hpMax)
 
     // 디버프 관리
@@ -63,9 +67,17 @@ export default class Enemy extends GameObjects.PathFollower {
     this.debuffs.forEach((debuff) => debuff.update(time, delta))
 
     // 슬로우 계산
-    const slowDebuffs = this.debuffs.filter((debuff) => debuff?.isSlowType())
+    const slowDebuffs = this.debuffs.filter(isSlowDebuff) as Slow[]
     const speed = slowDebuffs.reduce((acc, cur) => acc - cur.amount, 1)
     this.pathTween.setTimeScale(1 * speed)
+
+    // 스턴
+    const isStun = this.debuffs.some(isStunDebuff)
+    if (isStun) {
+      this.pauseFollow()
+    } else {
+      this.resumeFollow()
+    }
 
     if (this.isDead()) {
       this.destroy()

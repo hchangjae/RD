@@ -1,3 +1,4 @@
+import Enemy from '@/components/Enemy'
 import { ATTACK_DELAY } from '@/constant/weapon'
 
 export const enum ATTACK_RATE {
@@ -40,9 +41,9 @@ export default class Weapon {
     return this.timer > ATTACK_DELAY * this.rate
   }
 
-  fire() {
+  fire(target: Enemy) {
     this.timer -= ATTACK_DELAY * this.rate
-    return this.power
+    target.hit(this.power)
   }
 
   update(time: number, delta: number) {

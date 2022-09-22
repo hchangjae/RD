@@ -1,4 +1,5 @@
 import Enemy from '@/components/Enemy'
+import Skill from '@/components/Skill'
 import Weapon from '@/components/Weapon'
 import { EVENT } from '@/constant/event'
 import { LOCATION_PADDING, TOWER_GRADE } from '@/constant/tower'
@@ -9,12 +10,14 @@ import { GameObjects, Scene } from 'phaser'
 export type TowerProps = {
   scene: Scene
   weapon: Weapon
+  skills?: Skill[]
   size: number
   grade: TOWER_GRADE
 }
 
 export default class Tower extends GameObjects.Rectangle {
   protected weapon: Weapon
+  protected skills: Skill[]
   protected grade: TOWER_GRADE
   protected target: Enemy | null
   protected isDrag: boolean
@@ -26,13 +29,14 @@ export default class Tower extends GameObjects.Rectangle {
       throw new TypeError('Cannot construct Abstract instances directly')
     }
 
-    const { scene, weapon, size, grade } = props
+    const { scene, weapon, skills, size, grade } = props
     const [width, height] = getWH(scene)
     const [x, y] = [width * randomWithPadding(LOCATION_PADDING), height * randomWithPadding(LOCATION_PADDING)]
 
     super(scene, x, y, size, size, 0xffffff, 0.4)
 
     this.weapon = weapon
+    this.skills = skills || []
     this.grade = grade
     this.target = null
     this.isDrag = false
@@ -53,23 +57,36 @@ export default class Tower extends GameObjects.Rectangle {
   update(time: number, delta: number): void {
     this.weapon.update(time, delta)
 
+    // 공격
     if (this.target && this.weapon.canFire()) {
-      const attackPower = this.weapon.fire()
-      const isDead = this.target.hit(attackPower)
-      if (isDead) this.target = null
+      const target = this.target
+
+      // 기본 공격
+      this.weapon.fire(target)
+
+      // 스킬 공격
+      this.skills.forEach((skill) => {
+        if (!target.isDead() && skill.isChance()) {
+          skill.effect(target)
+        }
+      })
+
+      if (this.target.isDead()) this.target = null
     }
 
+    // 목표물 지정
     if (!this.target) {
       const enemyList = this.displayList.list.filter((v) => v instanceof Enemy) as Enemy[]
       this.target = enemyList[0]
     }
 
+    // 드래그
     if (!this.isDrag && Math.random() > 0.99) {
       this.dx = Math.random() * 100 - 50
       this.dy = Math.random() * 100 - 50
     }
 
-    // physics
+    // 이동
     const move = () => {
       this.x += (this.dx * delta) / 1000
       this.y += (this.dy * delta) / 1000

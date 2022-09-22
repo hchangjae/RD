@@ -1,5 +1,5 @@
 import { Curves, Scene } from 'phaser'
-import { ConcreteEnemy } from '@/components/Enemy/Type'
+import { ConcreteEnemy } from '@/components/Enemy/type'
 
 const SPAWN_DELAY = 1000
 

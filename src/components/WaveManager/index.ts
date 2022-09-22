@@ -4,7 +4,7 @@ import { Curves, GameObjects, Scene } from 'phaser'
 import Enemy from '@/components/Enemy'
 import Mob1 from '@/components/Enemy/mob1'
 import Mob2 from '@/components/Enemy/mob2'
-import { ConcreteEnemy } from '@/components/Enemy/Type'
+import { ConcreteEnemy } from '@/components/Enemy/type'
 import Wave, { WaveProps } from '@/components/WaveManager/Wave'
 import ATower from '@/components/Tower/normal/ATower'
 

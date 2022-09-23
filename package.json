@@ -24,6 +24,7 @@
     "phaser3-rex-plugins": "^1.1.73"
   },
   "devDependencies": {
+    "@rollup/plugin-dynamic-import-vars": "^1.4.4",
     "typescript": "^4.8.3",
     "vite": "^3.1.1",
     "vite-tsconfig-paths": "^3.5.0"

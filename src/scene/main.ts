@@ -1,5 +1,4 @@
 import { Scene } from 'phaser'
-import ATower from '@/components/Tower/normal/ATower'
 import getSquarePath from '@/components/Road'
 import WaveManager, { testWaveConfigList } from '@/components/WaveManager'
 import { getWH } from '@/utils/sceneUtils'

@@ -49,7 +49,7 @@ export default class RandomTower extends Tower {
   }
 }
 
-const importTower = (key: TOWER_GRADE) => import(`/src/components/Tower/${mapGradeToName(key)}/index`)
+const importTower = (key: TOWER_GRADE) => import(`./${mapGradeToName(key)}/index.ts`)
 
 const keys = Object.keys(gradeToNameMap) as TOWER_GRADE[]
 const isLast = (index: number) => index === keys.length - 1

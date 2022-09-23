@@ -6,8 +6,10 @@ import { Scene } from 'phaser'
 
 export default class UIScene extends Scene {
   constructor(props: Phaser.Types.Scenes.SettingsConfig) {
-    super({ ...props, key: SCENE.UI, active: true })
+    super({ ...props, key: SCENE.UI, active: false })
   }
+
+  async preload() {}
 
   create() {
     this.add.existing(new DeathCountDisplay({ scene: this }))

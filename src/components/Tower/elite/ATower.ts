@@ -17,6 +17,7 @@ export default class ATower extends Tower {
 
     const towerProps = {
       scene: scene,
+      text: 'A',
       grade: TOWER_GRADE.ELITE,
       weapon,
       size: 20,

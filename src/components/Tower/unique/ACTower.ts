@@ -17,6 +17,7 @@ export default class ACTower extends Tower {
 
     const towerProps = {
       scene: scene,
+      text: 'AC',
       grade: TOWER_GRADE.UNIQUE,
       weapon,
       size: 20,

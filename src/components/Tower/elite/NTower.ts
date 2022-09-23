@@ -17,6 +17,7 @@ export default class NTower extends Tower {
 
     const towerProps = {
       scene: scene,
+      text: 'N',
       grade: TOWER_GRADE.ELITE,
       weapon,
       size: 20,

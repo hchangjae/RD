@@ -17,6 +17,7 @@ export default class AJTower extends Tower {
 
     const towerProps = {
       scene: scene,
+      text: 'AJ',
       grade: TOWER_GRADE.EPIC,
       weapon,
       size: 20,

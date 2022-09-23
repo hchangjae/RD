@@ -17,6 +17,7 @@ export default class LTower extends Tower {
 
     const towerProps = {
       scene: scene,
+      text: 'L',
       grade: TOWER_GRADE.INFINITE,
       weapon,
       size: 20,

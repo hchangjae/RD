@@ -8,8 +8,10 @@ import { SCENE } from '@/constant/scene'
 
 export default class MainScene extends Scene {
   constructor(props: Phaser.Types.Scenes.SettingsConfig) {
-    super({ ...props, key: SCENE.MAIN, active: true })
+    super({ ...props, key: SCENE.MAIN, active: false })
   }
+
+  async preload() {}
 
   create() {
     const [width, height] = getWH(this)

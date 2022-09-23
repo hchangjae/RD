@@ -13,7 +13,7 @@ export default class RoundDisplay extends GameObjects.Text {
   constructor(props: RoundDisplayProps) {
     const { scene } = props
 
-    super(scene, 0, 0, createText(0), { font: '20px', padding: { top: 3 } })
+    super(scene, 0, 0, createText(0), { fontFamily: 'phased', fontSize: '20px', padding: { top: 3 } })
   }
 
   update(...args: any[]): void {
@@ -24,7 +24,7 @@ export default class RoundDisplay extends GameObjects.Text {
     const waveNumber = waveManager.getWaveNumber()
 
     this.setText(createText(waveNumber))
-    this.setX(width * 0.5 - (this.width / 5) * 2)
+    this.setX(width * 0.02)
     this.setY(height * 0.02)
   }
 }

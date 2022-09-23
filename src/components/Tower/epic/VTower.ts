@@ -17,6 +17,7 @@ export default class VTower extends Tower {
 
     const towerProps = {
       scene: scene,
+      text: 'V',
       grade: TOWER_GRADE.EPIC,
       weapon,
       size: 20,

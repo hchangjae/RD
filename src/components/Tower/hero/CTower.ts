@@ -17,6 +17,7 @@ export default class CTower extends Tower {
 
     const towerProps = {
       scene: scene,
+      text: 'C',
       grade: TOWER_GRADE.HERO,
       weapon,
       size: 20,

@@ -17,6 +17,7 @@ export default class OTower extends Tower {
 
     const towerProps = {
       scene: scene,
+      text: 'O',
       grade: TOWER_GRADE.UNIQUE,
       weapon,
       size: 20,

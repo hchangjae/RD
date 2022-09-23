@@ -94,7 +94,7 @@ export default class WaveManager extends GameObjects.Container {
   }
 
   getWaveNumber() {
-    return this.index + 1
+    return this.index
   }
 
   update(time: number, delta: number) {

@@ -17,6 +17,7 @@ export default class DTower extends Tower {
 
     const towerProps = {
       scene: scene,
+      text: 'D',
       grade: TOWER_GRADE.LIMIT,
       weapon,
       size: 20,

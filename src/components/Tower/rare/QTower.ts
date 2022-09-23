@@ -17,6 +17,7 @@ export default class QTower extends Tower {
 
     const towerProps = {
       scene: scene,
+      text: 'Q',
       grade: TOWER_GRADE.RARE,
       weapon,
       size: 20,

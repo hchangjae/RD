@@ -17,6 +17,7 @@ export default class BTower extends Tower {
 
     const towerProps = {
       scene: scene,
+      text: 'B',
       grade: TOWER_GRADE.LEGEND,
       weapon,
       size: 20,

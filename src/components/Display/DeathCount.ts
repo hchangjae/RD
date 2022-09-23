@@ -27,7 +27,7 @@ export default class DeathCountDisplay extends GameObjects.Text {
     const enemyCount = getByType(mainScene, Enemy).length
 
     this.setText(createText(enemyCount, deathCount))
-    this.setX(width * 0.02)
+    this.setX(width * 0.5 - this.width / 2)
     this.setY(height * 0.02)
   }
 }

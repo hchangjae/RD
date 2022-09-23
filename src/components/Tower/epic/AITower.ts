@@ -17,6 +17,7 @@ export default class AITower extends Tower {
 
     const towerProps = {
       scene: scene,
+      text: 'AI',
       grade: TOWER_GRADE.EPIC,
       weapon,
       size: 20,

@@ -17,6 +17,7 @@ export default class GTower extends Tower {
 
     const towerProps = {
       scene: scene,
+      text: 'G',
       grade: TOWER_GRADE.MAGIC,
       weapon,
       size: 20,

@@ -15,7 +15,7 @@ export type TowerProps = {
   grade: TOWER_GRADE
 }
 
-export default class Tower extends GameObjects.Rectangle {
+export default class Tower extends GameObjects.Text {
   protected weapon: Weapon
   protected skills: Skill[]
   protected grade: TOWER_GRADE
@@ -33,7 +33,7 @@ export default class Tower extends GameObjects.Rectangle {
     const [width, height] = getWH(scene)
     const [x, y] = [width * randomWithPadding(LOCATION_PADDING), height * randomWithPadding(LOCATION_PADDING)]
 
-    super(scene, x, y, size, size, 0xffffff, 0.4)
+    super(scene, x, y, 'A', { fontFamily: 'phased', fontSize: '25px' })
 
     this.weapon = weapon
     this.skills = skills || []

@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/hchangjae/RD#readme",
   "dependencies": {
-    "phaser": "^3.55.2"
+    "phaser": "^3.55.2",
+    "phaser3-rex-plugins": "^1.1.73"
   },
   "devDependencies": {
     "typescript": "^4.8.3",

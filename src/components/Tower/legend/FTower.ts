@@ -17,6 +17,7 @@ export default class FTower extends Tower {
 
     const towerProps = {
       scene: scene,
+      text: 'F',
       grade: TOWER_GRADE.LEGEND,
       weapon,
       size: 20,

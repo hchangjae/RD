@@ -17,7 +17,7 @@ export default class DeathCountDisplay extends GameObjects.Text {
 
     const [width, height] = getWH(scene)
 
-    super(scene, width * 0.4, height * 0.02, 0 + '👻', { font: '20px', padding: { top: 3 } })
+    super(scene, width * 0.02, height * 0.02, 0 + '👻', { font: '20px', padding: { top: 3 } })
   }
 
   update(...args: any[]): void {

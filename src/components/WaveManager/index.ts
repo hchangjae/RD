@@ -55,6 +55,10 @@ export default class WaveManager extends GameObjects.Container {
     return this.isLastWave() && enemyCount === 0 && this.now?.isDone()
   }
 
+  getDuration() {
+    return this.now?.getDuration() || 0
+  }
+
   nextWave() {
     if (this.isLastWave()) return
 

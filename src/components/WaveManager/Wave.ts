@@ -29,7 +29,7 @@ export default class Wave {
     const { scene, path, deathCount, duration, enemyType, enemyCount, rewardCount } = props
     this.path = path
     this.scene = scene
-    this.duration = duration
+    this.duration = duration - 0.000001
     this.deathCount = deathCount
     this.enemyType = enemyType
     this.enemyCount = enemyCount
@@ -43,6 +43,10 @@ export default class Wave {
 
   canSpawn() {
     return this.enemyCount > 0 && this.timer >= SPAWN_DELAY
+  }
+
+  getDuration() {
+    return Math.max(this.duration, 0)
   }
 
   spawn() {

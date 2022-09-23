@@ -20,7 +20,7 @@ export default class PTower extends Tower {
       text: 'P',
       grade: TOWER_GRADE.RARE,
       weapon,
-      size: 20,
+      size: 25,
     }
 
     super(towerProps)

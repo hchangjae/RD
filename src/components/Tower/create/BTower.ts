@@ -20,7 +20,7 @@ export default class BTower extends Tower {
       text: 'B',
       grade: TOWER_GRADE.CREATE,
       weapon,
-      size: 20,
+      size: 25,
     }
 
     super(towerProps)

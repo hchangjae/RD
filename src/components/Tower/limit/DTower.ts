@@ -20,7 +20,7 @@ export default class DTower extends Tower {
       text: 'D',
       grade: TOWER_GRADE.LIMIT,
       weapon,
-      size: 20,
+      size: 25,
     }
 
     super(towerProps)

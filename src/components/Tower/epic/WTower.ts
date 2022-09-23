@@ -20,7 +20,7 @@ export default class WTower extends Tower {
       text: 'W',
       grade: TOWER_GRADE.EPIC,
       weapon,
-      size: 20,
+      size: 25,
     }
 
     super(towerProps)

@@ -20,7 +20,7 @@ export default class GTower extends Tower {
       text: 'G',
       grade: TOWER_GRADE.LEGEND,
       weapon,
-      size: 20,
+      size: 25,
     }
 
     super(towerProps)

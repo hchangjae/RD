@@ -20,7 +20,7 @@ export default class ATower extends Tower {
       text: 'A',
       grade: TOWER_GRADE.MAGIC,
       weapon,
-      size: 20,
+      size: 25,
     }
 
     super(towerProps)

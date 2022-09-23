@@ -1,3 +1,4 @@
+import { loadTowerModules } from '@/components/Tower/RandomTower'
 import { SCENE } from '@/constant/scene'
 import { loadFont } from '@/utils/etc'
 import { Scene } from 'phaser'
@@ -11,6 +12,7 @@ export default class LoadScene extends Scene {
     // @ts-ignore
     this.load.rexAwait(async (res, rej) => {
       await loadFont('phased', 'fonts/Phased.ttf')
+      await loadTowerModules()
       res()
     })
   }

@@ -20,7 +20,7 @@ export default class ZTower extends Tower {
       text: 'Z',
       grade: TOWER_GRADE.UNIQUE,
       weapon,
-      size: 20,
+      size: 25,
     }
 
     super(towerProps)

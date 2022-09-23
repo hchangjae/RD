@@ -20,7 +20,7 @@ export default class QTower extends Tower {
       text: 'Q',
       grade: TOWER_GRADE.RARE,
       weapon,
-      size: 20,
+      size: 25,
     }
 
     super(towerProps)

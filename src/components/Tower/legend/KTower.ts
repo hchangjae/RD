@@ -20,7 +20,7 @@ export default class KTower extends Tower {
       text: 'K',
       grade: TOWER_GRADE.LEGEND,
       weapon,
-      size: 20,
+      size: 25,
     }
 
     super(towerProps)

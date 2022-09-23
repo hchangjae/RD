@@ -20,7 +20,7 @@ export default class STower extends Tower {
       text: 'S',
       grade: TOWER_GRADE.LEGEND,
       weapon,
-      size: 20,
+      size: 25,
     }
 
     super(towerProps)

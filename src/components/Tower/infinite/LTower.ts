@@ -20,7 +20,7 @@ export default class LTower extends Tower {
       text: 'L',
       grade: TOWER_GRADE.INFINITE,
       weapon,
-      size: 20,
+      size: 25,
     }
 
     super(towerProps)

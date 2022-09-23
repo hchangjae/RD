@@ -13,6 +13,7 @@ export type TowerProps = {
   skills?: Skill[]
   size: number
   grade: TOWER_GRADE
+  text: string
 }
 
 export default class Tower extends GameObjects.Text {
@@ -29,11 +30,11 @@ export default class Tower extends GameObjects.Text {
       throw new TypeError('Cannot construct Abstract instances directly')
     }
 
-    const { scene, weapon, skills, size, grade } = props
+    const { scene, weapon, skills, size, grade, text } = props
     const [width, height] = getWH(scene)
     const [x, y] = [width * randomWithPadding(LOCATION_PADDING), height * randomWithPadding(LOCATION_PADDING)]
 
-    super(scene, x, y, 'A', { fontFamily: 'phased', fontSize: '25px' })
+    super(scene, x, y, text, { fontFamily: 'phased', fontSize: `${size}px` })
 
     this.weapon = weapon
     this.skills = skills || []

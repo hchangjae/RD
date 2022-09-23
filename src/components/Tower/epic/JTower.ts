@@ -20,7 +20,7 @@ export default class JTower extends Tower {
       text: 'J',
       grade: TOWER_GRADE.EPIC,
       weapon,
-      size: 20,
+      size: 25,
     }
 
     super(towerProps)

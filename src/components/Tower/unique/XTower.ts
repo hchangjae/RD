@@ -20,7 +20,7 @@ export default class XTower extends Tower {
       text: 'X',
       grade: TOWER_GRADE.UNIQUE,
       weapon,
-      size: 20,
+      size: 25,
     }
 
     super(towerProps)

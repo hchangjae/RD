@@ -20,7 +20,7 @@ export default class NTower extends Tower {
       text: 'N',
       grade: TOWER_GRADE.ELITE,
       weapon,
-      size: 20,
+      size: 25,
     }
 
     super(towerProps)

@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import dynamicImportVars from '@rollup/plugin-dynamic-import-vars'
+import { viteSingleFile } from 'vite-plugin-singlefile'
 console.log(dynamicImportVars.default)
 
 export default defineConfig({
@@ -12,5 +13,5 @@ export default defineConfig({
     },
   },
   base: '',
-  plugins: [tsconfigPaths()],
+  plugins: [tsconfigPaths(), viteSingleFile()],
 })

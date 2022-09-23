@@ -9,6 +9,7 @@ import Wave, { WaveProps } from '@/components/WaveManager/Wave'
 import ATower from '@/components/Tower/normal/ATower'
 import { getByType } from '@/utils/sceneUtils'
 import RandomTower from '@/components/Tower/RandomTower'
+import { TOWER_GRADE } from '@/constant/tower'
 
 type WaveConfig = {
   deathCount: number
@@ -66,7 +67,7 @@ export default class WaveManager extends GameObjects.Container {
     if (this.now) {
       const rewardCount = this.now.rewardCount
       new Array(rewardCount).fill(null).forEach(() => {
-        this.scene.add.existing(new RandomTower({ scene: this.scene }))
+        this.scene.add.existing(new RandomTower({ scene: this.scene, grade: TOWER_GRADE.NORMAL }))
       })
     }
 

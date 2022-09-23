@@ -33,7 +33,7 @@ export default class Tower extends GameObjects.Text {
     const { scene, weapon, skills, size, grade, text } = props
     const [width, height] = getWH(scene)
     const [x, y] = [width * randomWithPadding(LOCATION_PADDING), height * randomWithPadding(LOCATION_PADDING)]
-
+    console.log(text)
     super(scene, x, y, text, { fontFamily: 'phased', fontSize: `${size}px` })
 
     this.weapon = weapon
@@ -54,6 +54,8 @@ export default class Tower extends GameObjects.Text {
       this.isDrag = false
       this.target = null
     })
+
+    console.log(this)
   }
 
   update(time: number, delta: number): void {

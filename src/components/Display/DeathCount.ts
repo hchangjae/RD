@@ -15,17 +15,19 @@ export default class DeathCountDisplay extends GameObjects.Text {
   constructor(props: DeathCountDisplayProps) {
     const { scene } = props
 
-    const [width, height] = getWH(scene)
-
-    super(scene, width * 0.02, height * 0.02, 0 + '👻', { font: '20px', padding: { top: 3 } })
+    super(scene, 0, 0, 0 + '👻', { font: '20px', padding: { top: 3 } })
   }
 
   update(...args: any[]): void {
+    const [width, height] = getWH(this.scene)
+
     const deathCount = useValue(deathCountState)
 
     const mainScene = this.scene.scene.get(SCENE.MAIN)
     const enemyCount = getByType(mainScene, Enemy).length
 
     this.setText(createText(enemyCount, deathCount))
+    this.setX(width * 0.02)
+    this.setY(height * 0.02)
   }
 }

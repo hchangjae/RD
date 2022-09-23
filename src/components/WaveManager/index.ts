@@ -93,6 +93,10 @@ export default class WaveManager extends GameObjects.Container {
     return this.now.deathCount > enemyCount
   }
 
+  getWaveNumber() {
+    return this.index + 1
+  }
+
   update(time: number, delta: number) {
     if (!this.now) return
 

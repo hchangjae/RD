@@ -3,7 +3,7 @@ import { getByType, getWH } from '@/utils/sceneUtils'
 import { GameObjects, Scene } from 'phaser'
 import WaveManager from '@/components/WaveManager'
 
-const createText = (second: number) => `0${Math.floor(second / 60)}`.slice(-2) + ':' + `0${Math.floor(second % 60)}`.slice(-2) + ' 🕒'
+const createText = (round: number) => `Wave ${round}`
 
 type RoundDisplayProps = {
   scene: Scene
@@ -13,8 +13,6 @@ export default class RoundDisplay extends GameObjects.Text {
   constructor(props: RoundDisplayProps) {
     const { scene } = props
 
-    const [width, height] = getWH(scene)
-
     super(scene, 0, 0, createText(0), { font: '20px', padding: { top: 3 } })
   }
 
@@ -23,10 +21,10 @@ export default class RoundDisplay extends GameObjects.Text {
 
     const mainScene = this.scene.scene.get(SCENE.MAIN)
     const [waveManager] = getByType(mainScene, WaveManager) as WaveManager[]
-    const duration = waveManager.getDuration()
+    const waveNumber = waveManager.getWaveNumber()
 
-    this.setText(createText(duration))
-    this.setX(width * 0.98 - this.width)
+    this.setText(createText(waveNumber))
+    this.setX(width * 0.5 - (this.width / 5) * 2)
     this.setY(height * 0.02)
   }
 }

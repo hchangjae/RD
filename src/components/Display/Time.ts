@@ -13,8 +13,6 @@ export default class TimeDisplay extends GameObjects.Text {
   constructor(props: TimeDisplayProps) {
     const { scene } = props
 
-    const [width, height] = getWH(scene)
-
     super(scene, 0, 0, createText(0), { font: '20px', padding: { top: 3 } })
   }
 

@@ -51,6 +51,7 @@ export default class Tower extends GameObjects.Rectangle {
     })
     this.on(EVENT.DRAG_END, () => {
       this.isDrag = false
+      this.target = null
     })
   }
 
@@ -77,6 +78,11 @@ export default class Tower extends GameObjects.Rectangle {
     // 목표물 지정
     if (!this.target) {
       const enemyList = this.displayList.list.filter((v) => v instanceof Enemy) as Enemy[]
+      enemyList.sort((a: Enemy, b: Enemy) => {
+        const distA = Phaser.Math.Distance.BetweenPoints(a, this)
+        const distB = Phaser.Math.Distance.BetweenPoints(b, this)
+        return distA - distB
+      })
       this.target = enemyList[0]
     }
 
@@ -84,22 +90,6 @@ export default class Tower extends GameObjects.Rectangle {
     if (!this.isDrag && Math.random() > 0.99) {
       this.dx = Math.random() * 100 - 50
       this.dy = Math.random() * 100 - 50
-    }
-
-    // 이동
-    const move = () => {
-      this.x += (this.dx * delta) / 1000
-      this.y += (this.dy * delta) / 1000
-    }
-    if (Math.abs(this.dx) > 1) {
-      const sign = Math.sign(this.dx)
-      this.dx -= ((100 * delta) / 1000) * sign
-      move()
-    }
-    if (Math.abs(this.dy) > 1) {
-      const sign = Math.sign(this.dy)
-      this.dy -= ((100 * delta) / 1000) * sign
-      move()
     }
   }
 }

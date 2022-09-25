@@ -37,6 +37,10 @@ export default class Weapon {
     this.timer = 0
   }
 
+  getAttackRate() {
+    return this.rate * ATTACK_DELAY
+  }
+
   canFire() {
     return this.timer > ATTACK_DELAY * this.rate
   }
@@ -44,6 +48,7 @@ export default class Weapon {
   fire(target: Enemy) {
     this.timer -= ATTACK_DELAY * this.rate
     target.hit(this.power)
+    const { scene, x, y } = target
   }
 
   update(time: number, delta: number) {

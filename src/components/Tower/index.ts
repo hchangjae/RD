@@ -1,4 +1,5 @@
 import Enemy from '@/components/Enemy'
+import ParticleManager from '@/components/Particle/ParticleManager'
 import Skill from '@/components/Skill'
 import Weapon from '@/components/Weapon'
 import { EVENT } from '@/constant/event'
@@ -24,6 +25,7 @@ export default class Tower extends GameObjects.Text {
   protected isDrag: boolean
   protected dx: number
   protected dy: number
+  protected particleManager: ParticleManager
 
   constructor(props: TowerProps) {
     if (new.target === Tower) {
@@ -33,7 +35,7 @@ export default class Tower extends GameObjects.Text {
     const { scene, weapon, skills, size, grade, text } = props
     const [width, height] = getWH(scene)
     const [x, y] = [width * randomWithPadding(LOCATION_PADDING), height * randomWithPadding(LOCATION_PADDING)]
-    console.log(text)
+
     super(scene, x, y, text, { fontFamily: 'phased', fontSize: `${size}px` })
 
     this.weapon = weapon
@@ -43,6 +45,8 @@ export default class Tower extends GameObjects.Text {
     this.isDrag = false
     this.dx = 0
     this.dy = 0
+
+    this.particleManager = new ParticleManager({ scene, text })
 
     this.scene.input.setDraggable(this.setInteractive())
 
@@ -54,8 +58,6 @@ export default class Tower extends GameObjects.Text {
       this.isDrag = false
       this.target = null
     })
-
-    console.log(this)
   }
 
   update(time: number, delta: number): void {
@@ -64,6 +66,7 @@ export default class Tower extends GameObjects.Text {
     // 공격
     if (this.target && this.weapon.canFire()) {
       const target = this.target
+      this.particleManager.fire(target.x, target.y)
 
       // 기본 공격
       this.weapon.fire(target)
@@ -75,7 +78,10 @@ export default class Tower extends GameObjects.Text {
         }
       })
 
-      if (this.target.isDead()) this.target = null
+      if (this.target.isDead()) {
+        this.target.destroy()
+        this.target = null
+      }
     }
 
     // 목표물 지정

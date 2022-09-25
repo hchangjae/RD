@@ -55,6 +55,11 @@ export default class Enemy extends GameObjects.PathFollower {
     this.debuffs = filterDuplicate([...this.debuffs, debuff], keySelector)
   }
 
+  destroy(fromScene?: boolean | undefined): void {
+    this.graphics.destroy(fromScene)
+    super.destroy(fromScene)
+  }
+
   update(time: number, delta: number): void {
     this.graphics.clear()
     this.graphics.lineStyle(1, 0xff0000)
@@ -77,11 +82,6 @@ export default class Enemy extends GameObjects.PathFollower {
       this.pauseFollow()
     } else {
       this.resumeFollow()
-    }
-
-    if (this.isDead()) {
-      this.destroy()
-      this.graphics.destroy()
     }
   }
 }

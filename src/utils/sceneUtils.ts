@@ -1,4 +1,5 @@
-import { Scene } from 'phaser'
+import { GameObjects, Scene } from 'phaser'
 
 export const getWH = (scene: Scene) => [+scene.game.config.width, +scene.game.config.height]
-export const getByType = (scene: Scene, type: any) => scene.children.list.filter((v) => v instanceof type)
+export const getByType = <T extends abstract new (...args: any) => any>(scene: Scene, type: T) =>
+  scene.children.list.filter((v) => v instanceof type) as InstanceType<T>[]

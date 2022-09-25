@@ -16,6 +16,7 @@ export default class ATower extends Tower {
     const [width] = getWH(scene)
 
     const weapon = new Common({
+      scene,
       power: 0,
       range: 1,
       rate: ATTACK_RATE.NORMAL,

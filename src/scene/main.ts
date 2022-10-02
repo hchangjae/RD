@@ -4,7 +4,7 @@ import WaveManager, { testWaveConfigList } from '@/components/WaveManager'
 import { getWH } from '@/utils/sceneUtils'
 import { GAME_SPEED } from '@/constant/game'
 import { SCENE } from '@/constant/scene'
-import RandomTower from '@/components/Tower/RandomTower'
+import TowerManager from '@/components/Tower/TowerManager'
 import { TOWER_GRADE } from '@/constant/tower'
 
 export default class MainScene extends Scene {
@@ -17,12 +17,15 @@ export default class MainScene extends Scene {
   create() {
     const [width, height] = getWH(this)
 
-    this.add.existing(new RandomTower({ scene: this, grade: TOWER_GRADE.NORMAL }))
-
     const road = getSquarePath(width, height)
     road.draw(this.add.graphics({ lineStyle: { width: 2, color: 0x550055 } }))
 
     this.add.existing(new WaveManager({ scene: this, path: road, waveConfigList: testWaveConfigList })).start()
+
+    const towerManager = new TowerManager({ scene: this })
+    towerManager.addTower(10)
+    this.add.existing(towerManager)
+
     this.tweens.timeScale = GAME_SPEED
 
     // event

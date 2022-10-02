@@ -24,6 +24,8 @@ export default class Tower extends GameObjects.Text {
   protected dx: number
   protected dy: number
   protected particleManager: ParticleManager
+  protected amount: number
+  protected amountDisplay: GameObjects.Container
 
   readonly weapon: Weapon
   readonly grade: TOWER_GRADE
@@ -45,11 +47,31 @@ export default class Tower extends GameObjects.Text {
     this.grade = grade
     this.target = null
     this.isDrag = false
+    this.amount = 1
     this.dx = 0
     this.dy = 0
 
     this.particleManager = new ParticleManager({ scene, text, color })
+    this.amountDisplay = new GameObjects.Container(scene, x, y)
 
+    // const amountBackground = new GameObjects.Graphics(scene, { x: this.width / 5.4, y: this.width / 5.4 })
+    const amountText = new GameObjects.Text(scene, this.width, -2, '1', { color: 'white', font: `700 ${size / 2}px Arial` })
+
+    // this.scene.add.existing(amountBackground)
+    this.scene.add.existing(amountText)
+
+    // this.amountDisplay.add(amountBackground)
+    this.amountDisplay.add(amountText)
+
+    amountText.update = () => {
+      if (this.amount > 1) {
+        amountText.setText(`${this.amount}`)
+      } else {
+        amountText.setText('')
+      }
+    }
+
+    this.scene.add.existing(this.amountDisplay)
     this.scene.input.setDraggable(this.setInteractive())
 
     // event
@@ -62,21 +84,35 @@ export default class Tower extends GameObjects.Text {
     })
   }
 
+  destroy(fromScene?: boolean | undefined): void {
+    this.amountDisplay.destroy(fromScene)
+    super.destroy(fromScene)
+  }
+
+  incAmount(amount: number = 1) {
+    this.amount += amount
+  }
+
   update(time: number, delta: number): void {
     this.weapon.update(time, delta)
+    this.amountDisplay.update(time, delta)
+    this.amountDisplay.list.forEach((v) => v.update(time, delta))
+
+    this.amountDisplay.setX(this.x)
+    this.amountDisplay.setY(this.y)
 
     // 공격
     if (this.target && this.weapon.canFire()) {
       const target = this.target
-      this.particleManager.fire(target.x, target.y)
+      this.particleManager.fire(target.x, target.y, this.amount)
 
       // 기본 공격
-      this.weapon.fire(target)
+      new Array(this.amount).fill('').forEach(() => this.weapon.fire(target))
 
       // 스킬 공격
       this.skills.forEach((skill) => {
         if (!target.isDead() && skill.isChance()) {
-          skill.effect(target)
+          new Array(this.amount).fill('').forEach(() => skill.effect(target))
         }
       })
 

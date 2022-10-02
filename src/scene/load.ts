@@ -1,6 +1,6 @@
 import { loadTowerModules } from '@/components/Tower/RandomTower'
 import { SCENE } from '@/constant/scene'
-import { loadFont } from '@/utils/etc'
+import { loadFont } from '@/utils/etcUtils'
 import { Scene } from 'phaser'
 
 export default class LoadScene extends Scene {

@@ -29,17 +29,18 @@ export default class Skill {
     this.debuff = debuff
   }
 
-  isChance() {
-    return Math.random() < this.chance
+  isChance(quantity: number = 1) {
+    const chance = 1 - Math.pow(1 - this.chance, quantity)
+    return Math.random() < chance
   }
 
-  effect(target: Enemy) {
+  effect(target: Enemy, quantity: number) {
     const { x: originX, y: originY, scene } = target
     const enemyList = getByType(scene, Enemy) as Enemy[]
     const targetList = enemyList.filter(({ x, y }) => isInCircle(originX, originY, x, y, this.radius))
 
     targetList.forEach((target) => {
-      target.hit(this.power)
+      target.hit(this.power, quantity)
       if (this.debuff) {
         target.spellDebuff(this.debuff.clone())
       }

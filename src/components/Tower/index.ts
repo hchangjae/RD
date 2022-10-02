@@ -107,12 +107,12 @@ export default class Tower extends GameObjects.Text {
       this.particleManager.fire(target.x, target.y, this.amount)
 
       // 기본 공격
-      new Array(this.amount).fill('').forEach(() => this.weapon.fire(target))
+      this.weapon.fire(target, this.amount)
 
       // 스킬 공격
       this.skills.forEach((skill) => {
-        if (!target.isDead() && skill.isChance()) {
-          new Array(this.amount).fill('').forEach(() => skill.effect(target))
+        if (!target.isDead() && skill.isChance(this.amount)) {
+          skill.effect(target, this.amount)
         }
       })
 

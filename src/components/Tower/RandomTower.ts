@@ -56,7 +56,7 @@ const isLast = (index: number) => index === keys.length - 1
 const bindModule = (res: any) => async (key: TOWER_GRADE, index: number) => {
   const pendingTowerModuleMap = towerModuleMap as PendingTowerModuleMap
   const module = await importTower(key)
-  pendingTowerModuleMap[key] = module
+  pendingTowerModuleMap[key] = module.default
   if (isLast(index)) res(towerModuleMap)
 }
 

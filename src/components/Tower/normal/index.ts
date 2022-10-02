@@ -1,9 +1,21 @@
-export { default as ATower } from '@/components/Tower/normal/ATower'
-export { default as BTower } from '@/components/Tower/normal/BTower'
-export { default as CTower } from '@/components/Tower/normal/CTower'
-export { default as DTower } from '@/components/Tower/normal/DTower'
-export { default as ETower } from '@/components/Tower/normal/ETower'
-export { default as FTower } from '@/components/Tower/normal/FTower'
-export { default as GTower } from '@/components/Tower/normal/GTower'
-export { default as HTower } from '@/components/Tower/normal/HTower'
-export { default as ITower } from '@/components/Tower/normal/ITower'
+import ATower from '@/components/Tower/normal/ATower'
+import BTower from '@/components/Tower/normal/BTower'
+import CTower from '@/components/Tower/normal/CTower'
+import DTower from '@/components/Tower/normal/DTower'
+import ETower from '@/components/Tower/normal/ETower'
+import FTower from '@/components/Tower/normal/FTower'
+import GTower from '@/components/Tower/normal/GTower'
+import HTower from '@/components/Tower/normal/HTower'
+import ITower from '@/components/Tower/normal/ITower'
+
+export default {
+  ATower,
+  BTower,
+  CTower,
+  DTower,
+  ETower,
+  FTower,
+  GTower,
+  HTower,
+  ITower,
+}

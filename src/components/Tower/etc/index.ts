@@ -1,3 +1,9 @@
-export { default as ATower } from '@/components/Tower/etc/ATower'
-export { default as BTower } from '@/components/Tower/etc/BTower'
-export { default as CTower } from '@/components/Tower/etc/CTower'
+import ATower from '@/components/Tower/etc/ATower'
+import BTower from '@/components/Tower/etc/BTower'
+import CTower from '@/components/Tower/etc/CTower'
+
+export default {
+  ATower,
+  BTower,
+  CTower,
+}

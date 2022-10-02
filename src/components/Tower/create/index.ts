@@ -1,3 +1,9 @@
-export { default as ATower } from '@/components/Tower/create/ATower'
-export { default as BTower } from '@/components/Tower/create/BTower'
-export { default as CTower } from '@/components/Tower/create/CTower'
+import ATower from '@/components/Tower/create/ATower'
+import BTower from '@/components/Tower/create/BTower'
+import CTower from '@/components/Tower/create/CTower'
+
+export default {
+  ATower,
+  BTower,
+  CTower,
+}

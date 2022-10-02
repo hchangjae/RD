@@ -1,25 +1,53 @@
-export { default as ATower } from '@/components/Tower/legend/ATower'
-export { default as BTower } from '@/components/Tower/legend/BTower'
-export { default as CTower } from '@/components/Tower/legend/CTower'
-export { default as DTower } from '@/components/Tower/legend/DTower'
-export { default as ETower } from '@/components/Tower/legend/ETower'
-export { default as FTower } from '@/components/Tower/legend/FTower'
-export { default as GTower } from '@/components/Tower/legend/GTower'
-export { default as HTower } from '@/components/Tower/legend/HTower'
-export { default as ITower } from '@/components/Tower/legend/ITower'
-export { default as JTower } from '@/components/Tower/legend/JTower'
-export { default as KTower } from '@/components/Tower/legend/KTower'
-export { default as LTower } from '@/components/Tower/legend/LTower'
-export { default as MTower } from '@/components/Tower/legend/MTower'
-export { default as NTower } from '@/components/Tower/legend/NTower'
-export { default as OTower } from '@/components/Tower/legend/OTower'
-export { default as PTower } from '@/components/Tower/legend/PTower'
-export { default as QTower } from '@/components/Tower/legend/QTower'
-export { default as RTower } from '@/components/Tower/legend/RTower'
-export { default as STower } from '@/components/Tower/legend/STower'
-export { default as TTower } from '@/components/Tower/legend/TTower'
-export { default as UTower } from '@/components/Tower/legend/UTower'
-export { default as VTower } from '@/components/Tower/legend/VTower'
-export { default as WTower } from '@/components/Tower/legend/WTower'
-export { default as XTower } from '@/components/Tower/legend/XTower'
-export { default as YTower } from '@/components/Tower/legend/YTower'
+import ATower from '@/components/Tower/legend/ATower'
+import BTower from '@/components/Tower/legend/BTower'
+import CTower from '@/components/Tower/legend/CTower'
+import DTower from '@/components/Tower/legend/DTower'
+import ETower from '@/components/Tower/legend/ETower'
+import FTower from '@/components/Tower/legend/FTower'
+import GTower from '@/components/Tower/legend/GTower'
+import HTower from '@/components/Tower/legend/HTower'
+import ITower from '@/components/Tower/legend/ITower'
+import JTower from '@/components/Tower/legend/JTower'
+import KTower from '@/components/Tower/legend/KTower'
+import LTower from '@/components/Tower/legend/LTower'
+import MTower from '@/components/Tower/legend/MTower'
+import NTower from '@/components/Tower/legend/NTower'
+import OTower from '@/components/Tower/legend/OTower'
+import PTower from '@/components/Tower/legend/PTower'
+import QTower from '@/components/Tower/legend/QTower'
+import RTower from '@/components/Tower/legend/RTower'
+import STower from '@/components/Tower/legend/STower'
+import TTower from '@/components/Tower/legend/TTower'
+import UTower from '@/components/Tower/legend/UTower'
+import VTower from '@/components/Tower/legend/VTower'
+import WTower from '@/components/Tower/legend/WTower'
+import XTower from '@/components/Tower/legend/XTower'
+import YTower from '@/components/Tower/legend/YTower'
+
+export default {
+  ATower,
+  BTower,
+  CTower,
+  DTower,
+  ETower,
+  FTower,
+  GTower,
+  HTower,
+  ITower,
+  JTower,
+  KTower,
+  LTower,
+  MTower,
+  NTower,
+  OTower,
+  PTower,
+  QTower,
+  RTower,
+  STower,
+  TTower,
+  UTower,
+  VTower,
+  WTower,
+  XTower,
+  YTower,
+}

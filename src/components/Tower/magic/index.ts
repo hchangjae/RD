@@ -1,8 +1,19 @@
-export { default as ATower } from '@/components/Tower/magic/ATower'
-export { default as BTower } from '@/components/Tower/magic/BTower'
-export { default as CTower } from '@/components/Tower/magic/CTower'
-export { default as DTower } from '@/components/Tower/magic/DTower'
-export { default as ETower } from '@/components/Tower/magic/ETower'
-export { default as FTower } from '@/components/Tower/magic/FTower'
-export { default as GTower } from '@/components/Tower/magic/GTower'
-export { default as HTower } from '@/components/Tower/magic/HTower'
+import ATower from '@/components/Tower/magic/ATower'
+import BTower from '@/components/Tower/magic/BTower'
+import CTower from '@/components/Tower/magic/CTower'
+import DTower from '@/components/Tower/magic/DTower'
+import ETower from '@/components/Tower/magic/ETower'
+import FTower from '@/components/Tower/magic/FTower'
+import GTower from '@/components/Tower/magic/GTower'
+import HTower from '@/components/Tower/magic/HTower'
+
+export default {
+  ATower,
+  BTower,
+  CTower,
+  DTower,
+  ETower,
+  FTower,
+  GTower,
+  HTower,
+}

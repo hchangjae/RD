@@ -18,6 +18,7 @@ export default class MainScene extends Scene {
     const [width, height] = getWH(this)
 
     this.add.existing(new RandomTower({ scene: this, grade: TOWER_GRADE.NORMAL }))
+
     const road = getSquarePath(width, height)
     road.draw(this.add.graphics({ lineStyle: { width: 2, color: 0x550055 } }))
 

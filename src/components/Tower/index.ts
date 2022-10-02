@@ -18,14 +18,15 @@ export type TowerProps = {
 }
 
 export default class Tower extends GameObjects.Text {
-  protected weapon: Weapon
   protected skills: Skill[]
-  protected grade: TOWER_GRADE
   protected target: Enemy | null
   protected isDrag: boolean
   protected dx: number
   protected dy: number
   protected particleManager: ParticleManager
+
+  readonly weapon: Weapon
+  readonly grade: TOWER_GRADE
 
   constructor(props: TowerProps) {
     if (new.target === Tower) {

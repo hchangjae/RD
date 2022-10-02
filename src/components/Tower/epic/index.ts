@@ -1,37 +1,77 @@
-export { default as ATower } from '@/components/Tower/epic/ATower'
-export { default as BTower } from '@/components/Tower/epic/BTower'
-export { default as CTower } from '@/components/Tower/epic/CTower'
-export { default as DTower } from '@/components/Tower/epic/DTower'
-export { default as ETower } from '@/components/Tower/epic/ETower'
-export { default as FTower } from '@/components/Tower/epic/FTower'
-export { default as GTower } from '@/components/Tower/epic/GTower'
-export { default as HTower } from '@/components/Tower/epic/HTower'
-export { default as ITower } from '@/components/Tower/epic/ITower'
-export { default as JTower } from '@/components/Tower/epic/JTower'
-export { default as KTower } from '@/components/Tower/epic/KTower'
-export { default as LTower } from '@/components/Tower/epic/LTower'
-export { default as MTower } from '@/components/Tower/epic/MTower'
-export { default as NTower } from '@/components/Tower/epic/NTower'
-export { default as OTower } from '@/components/Tower/epic/OTower'
-export { default as PTower } from '@/components/Tower/epic/PTower'
-export { default as QTower } from '@/components/Tower/epic/QTower'
-export { default as RTower } from '@/components/Tower/epic/RTower'
-export { default as STower } from '@/components/Tower/epic/STower'
-export { default as TTower } from '@/components/Tower/epic/TTower'
-export { default as UTower } from '@/components/Tower/epic/UTower'
-export { default as VTower } from '@/components/Tower/epic/VTower'
-export { default as WTower } from '@/components/Tower/epic/WTower'
-export { default as XTower } from '@/components/Tower/epic/XTower'
-export { default as YTower } from '@/components/Tower/epic/YTower'
-export { default as ZTower } from '@/components/Tower/epic/ZTower'
-export { default as AATower } from '@/components/Tower/epic/AATower'
-export { default as ABTower } from '@/components/Tower/epic/ABTower'
-export { default as ACTower } from '@/components/Tower/epic/ACTower'
-export { default as ADTower } from '@/components/Tower/epic/ADTower'
-export { default as AETower } from '@/components/Tower/epic/AETower'
-export { default as AFTower } from '@/components/Tower/epic/AFTower'
-export { default as AGTower } from '@/components/Tower/epic/AGTower'
-export { default as AHTower } from '@/components/Tower/epic/AHTower'
-export { default as AITower } from '@/components/Tower/epic/AITower'
-export { default as AJTower } from '@/components/Tower/epic/AJTower'
-export { default as AKTower } from '@/components/Tower/epic/AKTower'
+import ATower from '@/components/Tower/epic/ATower'
+import BTower from '@/components/Tower/epic/BTower'
+import CTower from '@/components/Tower/epic/CTower'
+import DTower from '@/components/Tower/epic/DTower'
+import ETower from '@/components/Tower/epic/ETower'
+import FTower from '@/components/Tower/epic/FTower'
+import GTower from '@/components/Tower/epic/GTower'
+import HTower from '@/components/Tower/epic/HTower'
+import ITower from '@/components/Tower/epic/ITower'
+import JTower from '@/components/Tower/epic/JTower'
+import KTower from '@/components/Tower/epic/KTower'
+import LTower from '@/components/Tower/epic/LTower'
+import MTower from '@/components/Tower/epic/MTower'
+import NTower from '@/components/Tower/epic/NTower'
+import OTower from '@/components/Tower/epic/OTower'
+import PTower from '@/components/Tower/epic/PTower'
+import QTower from '@/components/Tower/epic/QTower'
+import RTower from '@/components/Tower/epic/RTower'
+import STower from '@/components/Tower/epic/STower'
+import TTower from '@/components/Tower/epic/TTower'
+import UTower from '@/components/Tower/epic/UTower'
+import VTower from '@/components/Tower/epic/VTower'
+import WTower from '@/components/Tower/epic/WTower'
+import XTower from '@/components/Tower/epic/XTower'
+import YTower from '@/components/Tower/epic/YTower'
+import ZTower from '@/components/Tower/epic/ZTower'
+import AATower from '@/components/Tower/epic/AATower'
+import ABTower from '@/components/Tower/epic/ABTower'
+import ACTower from '@/components/Tower/epic/ACTower'
+import ADTower from '@/components/Tower/epic/ADTower'
+import AETower from '@/components/Tower/epic/AETower'
+import AFTower from '@/components/Tower/epic/AFTower'
+import AGTower from '@/components/Tower/epic/AGTower'
+import AHTower from '@/components/Tower/epic/AHTower'
+import AITower from '@/components/Tower/epic/AITower'
+import AJTower from '@/components/Tower/epic/AJTower'
+import AKTower from '@/components/Tower/epic/AKTower'
+
+export default {
+  ATower,
+  BTower,
+  CTower,
+  DTower,
+  ETower,
+  FTower,
+  GTower,
+  HTower,
+  ITower,
+  JTower,
+  KTower,
+  LTower,
+  MTower,
+  NTower,
+  OTower,
+  PTower,
+  QTower,
+  RTower,
+  STower,
+  TTower,
+  UTower,
+  VTower,
+  WTower,
+  XTower,
+  YTower,
+  ZTower,
+  AATower,
+  ABTower,
+  ACTower,
+  ADTower,
+  AETower,
+  AFTower,
+  AGTower,
+  AHTower,
+  AITower,
+  AJTower,
+  AKTower,
+}

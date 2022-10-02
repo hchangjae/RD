@@ -1,14 +1,31 @@
-export { default as ATower } from '@/components/Tower/infinite/ATower'
-export { default as BTower } from '@/components/Tower/infinite/BTower'
-export { default as CTower } from '@/components/Tower/infinite/CTower'
-export { default as DTower } from '@/components/Tower/infinite/DTower'
-export { default as ETower } from '@/components/Tower/infinite/ETower'
-export { default as FTower } from '@/components/Tower/infinite/FTower'
-export { default as GTower } from '@/components/Tower/infinite/GTower'
-export { default as HTower } from '@/components/Tower/infinite/HTower'
-export { default as ITower } from '@/components/Tower/infinite/ITower'
-export { default as JTower } from '@/components/Tower/infinite/JTower'
-export { default as KTower } from '@/components/Tower/infinite/KTower'
-export { default as LTower } from '@/components/Tower/infinite/LTower'
-export { default as MTower } from '@/components/Tower/infinite/MTower'
-export { default as NTower } from '@/components/Tower/infinite/NTower'
+import ATower from '@/components/Tower/infinite/ATower'
+import BTower from '@/components/Tower/infinite/BTower'
+import CTower from '@/components/Tower/infinite/CTower'
+import DTower from '@/components/Tower/infinite/DTower'
+import ETower from '@/components/Tower/infinite/ETower'
+import FTower from '@/components/Tower/infinite/FTower'
+import GTower from '@/components/Tower/infinite/GTower'
+import HTower from '@/components/Tower/infinite/HTower'
+import ITower from '@/components/Tower/infinite/ITower'
+import JTower from '@/components/Tower/infinite/JTower'
+import KTower from '@/components/Tower/infinite/KTower'
+import LTower from '@/components/Tower/infinite/LTower'
+import MTower from '@/components/Tower/infinite/MTower'
+import NTower from '@/components/Tower/infinite/NTower'
+
+export default {
+  ATower,
+  BTower,
+  CTower,
+  DTower,
+  ETower,
+  FTower,
+  GTower,
+  HTower,
+  ITower,
+  JTower,
+  KTower,
+  LTower,
+  MTower,
+  NTower,
+}

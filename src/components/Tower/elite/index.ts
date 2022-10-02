@@ -1,14 +1,31 @@
-export { default as ATower } from '@/components/Tower/elite/ATower'
-export { default as BTower } from '@/components/Tower/elite/BTower'
-export { default as CTower } from '@/components/Tower/elite/CTower'
-export { default as DTower } from '@/components/Tower/elite/DTower'
-export { default as ETower } from '@/components/Tower/elite/ETower'
-export { default as FTower } from '@/components/Tower/elite/FTower'
-export { default as GTower } from '@/components/Tower/elite/GTower'
-export { default as HTower } from '@/components/Tower/elite/HTower'
-export { default as ITower } from '@/components/Tower/elite/ITower'
-export { default as JTower } from '@/components/Tower/elite/JTower'
-export { default as KTower } from '@/components/Tower/elite/KTower'
-export { default as LTower } from '@/components/Tower/elite/LTower'
-export { default as MTower } from '@/components/Tower/elite/MTower'
-export { default as NTower } from '@/components/Tower/elite/NTower'
+import ATower from '@/components/Tower/elite/ATower'
+import BTower from '@/components/Tower/elite/BTower'
+import CTower from '@/components/Tower/elite/CTower'
+import DTower from '@/components/Tower/elite/DTower'
+import ETower from '@/components/Tower/elite/ETower'
+import FTower from '@/components/Tower/elite/FTower'
+import GTower from '@/components/Tower/elite/GTower'
+import HTower from '@/components/Tower/elite/HTower'
+import ITower from '@/components/Tower/elite/ITower'
+import JTower from '@/components/Tower/elite/JTower'
+import KTower from '@/components/Tower/elite/KTower'
+import LTower from '@/components/Tower/elite/LTower'
+import MTower from '@/components/Tower/elite/MTower'
+import NTower from '@/components/Tower/elite/NTower'
+
+export default {
+  ATower,
+  BTower,
+  CTower,
+  DTower,
+  ETower,
+  FTower,
+  GTower,
+  HTower,
+  ITower,
+  JTower,
+  KTower,
+  LTower,
+  MTower,
+  NTower,
+}

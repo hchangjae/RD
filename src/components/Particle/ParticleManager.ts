@@ -14,17 +14,18 @@ import { GameObjects, Scene } from 'phaser'
 type ParticleManagerProps = {
   scene: Scene
   text: string
+  color: string
 }
 
 export default class ParticleManager extends GameObjects.Particles.ParticleEmitterManager {
   constructor(props: ParticleManagerProps) {
-    const { scene, text } = props
+    const { scene, text, color } = props
 
     const textureKey = PARTICLE_TEXTURE_PREFIX + text
 
     let isTextureExist = scene.textures.exists(textureKey)
     if (!isTextureExist) {
-      const { canvas } = scene.make.text({ text, style: { fontFamily: 'phased', fontSize: '10px' }, visible: false })
+      const { canvas } = scene.make.text({ text, style: { fontFamily: 'phased', fontSize: '10px', color }, visible: false })
       scene.textures.addCanvas(textureKey, canvas)
     }
 

@@ -36,8 +36,9 @@ export default class Tower extends GameObjects.Text {
     const { scene, weapon, skills, size, grade, text } = props
     const [width, height] = getWH(scene)
     const [x, y] = [width * randomWithPadding(LOCATION_PADDING), height * randomWithPadding(LOCATION_PADDING)]
+    const color = mapGradeToColor(grade)
 
-    super(scene, x, y, text, { fontFamily: 'phased', fontSize: `${size}px` })
+    super(scene, x, y, text, { fontFamily: 'phased', fontSize: `${size}px`, color })
 
     this.weapon = weapon
     this.skills = skills || []
@@ -47,7 +48,7 @@ export default class Tower extends GameObjects.Text {
     this.dx = 0
     this.dy = 0
 
-    this.particleManager = new ParticleManager({ scene, text })
+    this.particleManager = new ParticleManager({ scene, text, color })
 
     this.scene.input.setDraggable(this.setInteractive())
 
@@ -103,3 +104,23 @@ export default class Tower extends GameObjects.Text {
     }
   }
 }
+
+const gradeToColorMap: Record<TOWER_GRADE, string> = {
+  [TOWER_GRADE.NORMAL]: 'white',
+  [TOWER_GRADE.MAGIC]: 'gray',
+  [TOWER_GRADE.RARE]: 'khaki',
+  [TOWER_GRADE.UNIQUE]: 'green',
+  [TOWER_GRADE.HIDDEN]: 'teal',
+  [TOWER_GRADE.HERO]: 'blue',
+  [TOWER_GRADE.BEAST]: 'skyblue',
+  [TOWER_GRADE.LEGEND]: 'red',
+  [TOWER_GRADE.LIMIT]: 'navy',
+  [TOWER_GRADE.ELITE]: 'orange',
+  [TOWER_GRADE.INFINITE]: 'violet',
+  [TOWER_GRADE.CREATE]: 'tomato',
+  [TOWER_GRADE.RUIN]: 'purple',
+  [TOWER_GRADE.EPIC]: 'yellow',
+  [TOWER_GRADE.ETC]: 'gold',
+}
+
+const mapGradeToColor = (grade: TOWER_GRADE) => gradeToColorMap[grade]

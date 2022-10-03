@@ -3,13 +3,9 @@ import { deathCountState } from '@/store/atom/deathCount'
 import { Curves, GameObjects, Scene } from 'phaser'
 import Enemy from '@/components/Enemy'
 import Mob1 from '@/components/Enemy/mob1'
-import Mob2 from '@/components/Enemy/mob2'
 import { ConcreteEnemy } from '@/components/Enemy/type'
 import Wave, { WaveProps } from '@/components/WaveManager/Wave'
-import ATower from '@/components/Tower/normal/ATower'
 import { getByType } from '@/utils/sceneUtils'
-import RandomTower from '@/components/Tower/RandomTower'
-import { TOWER_GRADE } from '@/constant/tower'
 import TowerManager from '@/components/Tower/TowerManager'
 
 type WaveConfig = {
@@ -121,22 +117,23 @@ export default class WaveManager extends GameObjects.Container {
   }
 }
 
-export const testWaveConfigList: WaveConfig[] = [
-  { deathCount: 60, duration: 10, enemyCount: 7, enemyType: Mob1, rewardCount: 1 },
-  { deathCount: 60, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
-  { deathCount: 60, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
-  { deathCount: 60, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
-  { deathCount: 60, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
+const createWaveConfigList = (enemyClass: typeof Enemy, round: number = 60) =>
+  new Array(round).fill('').map((_, i) => {
+    const baseHp = 5
+    const hp = baseHp * Math.pow(1.3, i) + baseHp * i
+    class temp extends enemyClass {
+      constructor(props: any) {
+        super({ ...props, hp })
+      }
+    }
+    const waveConfig = {
+      deathCount: 60,
+      duration: 10,
+      enemyCount: 7,
+      enemyType: temp,
+      rewardCount: 3,
+    } as WaveConfig
+    return waveConfig
+  })
 
-  { deathCount: 40, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
-  { deathCount: 40, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
-  { deathCount: 40, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
-  { deathCount: 40, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
-  { deathCount: 40, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
-
-  { deathCount: 20, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
-  { deathCount: 20, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
-  { deathCount: 20, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
-  { deathCount: 20, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
-  { deathCount: 20, duration: 10, enemyCount: 7, enemyType: Mob2, rewardCount: 1 },
-]
+export const testWaveConfigList: WaveConfig[] = createWaveConfigList(Mob1, 40)

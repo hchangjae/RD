@@ -1,3 +1,4 @@
+import { GAME_SPEED } from '@/constant/game'
 import {
   PARTICLE_ANGLE_MAX,
   PARTICLE_ANGLE_MIN,
@@ -43,6 +44,7 @@ export default class ParticleManager extends GameObjects.Particles.ParticleEmitt
       angle: { min: PARTICLE_ANGLE_MIN, max: PARTICLE_ANGLE_MAX },
       lifespan: { min: PARTICLE_DURATION_MIN, max: PARTICLE_DURATION_MAX },
     })
+    this.timeScale *= GAME_SPEED
   }
 
   fire(x: number, y: number, quantity: number = 1) {

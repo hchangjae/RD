@@ -6,12 +6,12 @@ import Phaser from 'phaser'
 // @ts-ignore
 import AwaitLoaderPlugin from 'phaser3-rex-plugins/plugins/awaitloader-plugin.js'
 
-const width = Math.min(window.innerWidth, window.innerHeight, 700) * 0.8
+const width = Math.min(window.innerWidth, window.innerHeight, 700) * 0.9
 
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   width: width,
-  height: width * 1.1,
+  height: width,
   scene: [LoadScene, MainScene, UIScene],
   plugins: {
     global: [

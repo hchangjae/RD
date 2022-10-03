@@ -20,7 +20,7 @@ export default class GTower extends Tower {
       scene: scene,
       text: 'G',
       grade: TOWER_GRADE.NORMAL,
-      weapon,
+      // weapon,
       size: 25,
     }
 

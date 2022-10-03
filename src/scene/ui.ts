@@ -1,5 +1,6 @@
 import DeathCountDisplay from '@/components/Display/DeathCount'
 import FPSDisplay from '@/components/Display/fps'
+import InfoDisplay from '@/components/Display/Info'
 import RoundDisplay from '@/components/Display/Round'
 import SuggestionDisplay from '@/components/Display/Suggestion'
 import TimeDisplay from '@/components/Display/Time'
@@ -19,6 +20,7 @@ export default class UIScene extends Scene {
     this.add.existing(new RoundDisplay({ scene: this }))
     this.add.existing(new FPSDisplay({ scene: this }))
     this.add.existing(new SuggestionDisplay({ scene: this }))
+    this.add.existing(new InfoDisplay({ scene: this }))
   }
 
   update(time: number, delta: number): void {

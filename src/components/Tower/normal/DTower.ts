@@ -20,7 +20,7 @@ export default class DTower extends Tower {
       scene: scene,
       text: 'D',
       grade: TOWER_GRADE.NORMAL,
-      weapon,
+      // weapon,
       size: 25,
     }
 

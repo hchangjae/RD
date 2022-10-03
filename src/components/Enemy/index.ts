@@ -1,6 +1,6 @@
 import Debuff from '@/components/Debuff'
 import Slow, { isSlowDebuff } from '@/components/Debuff/Slow'
-import Stun, { isStunDebuff } from '@/components/Debuff/Stun'
+import { isStunDebuff } from '@/components/Debuff/Stun'
 import { DEFENSE_POWER_BASE, HP_RADIUS, MOVE_DURATION } from '@/constant/enemy'
 import { filterDuplicate } from '@/utils/arrayUtils'
 import { Curves, GameObjects, Scene } from 'phaser'

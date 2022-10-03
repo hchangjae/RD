@@ -4,13 +4,14 @@ import Skill from '@/components/Skill'
 import Weapon from '@/components/Weapon'
 import { EVENT } from '@/constant/event'
 import { LOCATION_PADDING, TOWER_GRADE } from '@/constant/tower'
+import { MAIN_WIDTH, PADDING } from '@/constant/ui'
 import { randomWithPadding } from '@/utils/numberUtils'
 import { getWH } from '@/utils/sceneUtils'
 import { GameObjects, Scene } from 'phaser'
 
 export type TowerProps = {
   scene: Scene
-  weapon: Weapon
+  weapon?: Weapon
   skills?: Skill[]
   size: number
   grade: TOWER_GRADE
@@ -28,7 +29,7 @@ export default class Tower extends GameObjects.Text {
   protected amount: number
   protected amountDisplay?: GameObjects.Container
 
-  readonly weapon: Weapon
+  readonly weapon?: Weapon
   readonly grade: TOWER_GRADE
 
   constructor(props: TowerProps) {
@@ -37,8 +38,11 @@ export default class Tower extends GameObjects.Text {
     }
 
     const { scene, weapon, skills, size, grade, text, isOnlyDisplay } = props
-    const [width, height] = getWH(scene)
-    const [x, y] = [width * randomWithPadding(LOCATION_PADDING), height * randomWithPadding(LOCATION_PADDING)]
+    const [width] = getWH(scene)
+    const [x, y] = [
+      width * randomWithPadding(PADDING) * (MAIN_WIDTH + PADDING + PADDING),
+      width * randomWithPadding(PADDING) * (MAIN_WIDTH + PADDING + PADDING),
+    ]
     const color = mapGradeToColor(grade)
 
     super(scene, x, y, text, { fontFamily: 'phased', fontSize: `${size}px`, color })
@@ -103,7 +107,7 @@ export default class Tower extends GameObjects.Text {
   }
 
   update(time: number, delta: number): void {
-    this.weapon.update(time, delta)
+    this.weapon?.update(time, delta)
     this.amountDisplay?.update(time, delta)
     this.amountDisplay?.list.forEach((v) => v.update(time, delta))
 
@@ -111,7 +115,7 @@ export default class Tower extends GameObjects.Text {
     this.amountDisplay?.setY(this.y)
 
     // 공격
-    if (this.target && this.weapon.canFire()) {
+    if (this.target && this.weapon?.canFire()) {
       const target = this.target
       this.particleManager?.fire(target.x, target.y, this.amount)
 

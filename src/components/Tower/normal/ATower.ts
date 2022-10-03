@@ -42,7 +42,7 @@ export default class ATower extends Tower {
       scene: scene,
       text: 'A',
       grade: TOWER_GRADE.NORMAL,
-      weapon,
+      // weapon,
       // skills: skills,
       size: 25,
     }

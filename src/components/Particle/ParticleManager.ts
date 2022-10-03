@@ -22,7 +22,7 @@ export default class ParticleManager extends GameObjects.Particles.ParticleEmitt
   constructor(props: ParticleManagerProps) {
     const { scene, text, color } = props
 
-    const textureKey = PARTICLE_TEXTURE_PREFIX + text
+    const textureKey = PARTICLE_TEXTURE_PREFIX + text + color
 
     let isTextureExist = scene.textures.exists(textureKey)
     if (!isTextureExist) {

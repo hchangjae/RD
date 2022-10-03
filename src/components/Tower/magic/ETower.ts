@@ -20,7 +20,7 @@ export default class ETower extends Tower {
       scene: scene,
       text: 'E',
       grade: TOWER_GRADE.MAGIC,
-      weapon,
+      // weapon,
       size: 25,
     }
 

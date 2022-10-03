@@ -20,7 +20,7 @@ export default class FTower extends Tower {
       scene: scene,
       text: 'F',
       grade: TOWER_GRADE.NORMAL,
-      weapon,
+      // weapon,
       size: 25,
     }
 

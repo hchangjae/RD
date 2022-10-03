@@ -22,7 +22,7 @@ export default class MainScene extends Scene {
     this.add.existing(new WaveManager({ scene: this, path: road, waveConfigList: testWaveConfigList })).start()
 
     const towerManager = new TowerManager({ scene: this })
-    towerManager.addTower(40)
+    towerManager.addTower(5)
     this.add.existing(towerManager)
 
     this.tweens.timeScale = GAME_SPEED

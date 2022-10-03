@@ -1,15 +1,5 @@
 import Enemy from '@/components/Enemy'
-import { ATTACK_DELAY } from '@/constant/weapon'
-
-export const enum ATTACK_RATE {
-  SLOWEST = 4,
-  SLOWER = 2,
-  SLOW = 1.5,
-  NORMAL = 1,
-  FAST = 0.75,
-  FASTER = 0.5,
-  FASTEST = 0.25,
-}
+import { ATTACK_DELAY, ATTACK_RATE } from '@/constant/weapon'
 
 export type WeaponProps = {
   power: number

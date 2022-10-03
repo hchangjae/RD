@@ -16,6 +16,7 @@ export default class BTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'B',
       grade: TOWER_GRADE.EPIC,

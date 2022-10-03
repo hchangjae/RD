@@ -16,6 +16,7 @@ export default class RTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'R',
       grade: TOWER_GRADE.LEGEND,

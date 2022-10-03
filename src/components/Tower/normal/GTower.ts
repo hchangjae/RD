@@ -16,6 +16,7 @@ export default class GTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'G',
       grade: TOWER_GRADE.NORMAL,

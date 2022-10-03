@@ -16,6 +16,7 @@ export default class UTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'U',
       grade: TOWER_GRADE.LEGEND,

@@ -16,6 +16,7 @@ export default class AETower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'AE',
       grade: TOWER_GRADE.EPIC,

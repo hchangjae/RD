@@ -16,6 +16,7 @@ export default class ITower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'I',
       grade: TOWER_GRADE.BEAST,

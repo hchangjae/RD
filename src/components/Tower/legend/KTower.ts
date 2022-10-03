@@ -16,6 +16,7 @@ export default class KTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'K',
       grade: TOWER_GRADE.LEGEND,

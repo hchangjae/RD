@@ -16,6 +16,7 @@ export default class JTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'J',
       grade: TOWER_GRADE.ELITE,

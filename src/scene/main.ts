@@ -5,7 +5,6 @@ import { getWH } from '@/utils/sceneUtils'
 import { GAME_SPEED } from '@/constant/game'
 import { SCENE } from '@/constant/scene'
 import TowerManager from '@/components/Tower/TowerManager'
-import { TOWER_GRADE } from '@/constant/tower'
 
 export default class MainScene extends Scene {
   constructor(props: Phaser.Types.Scenes.SettingsConfig) {
@@ -23,7 +22,7 @@ export default class MainScene extends Scene {
     this.add.existing(new WaveManager({ scene: this, path: road, waveConfigList: testWaveConfigList })).start()
 
     const towerManager = new TowerManager({ scene: this })
-    towerManager.addTower(1)
+    towerManager.addTower(40)
     this.add.existing(towerManager)
 
     this.tweens.timeScale = GAME_SPEED

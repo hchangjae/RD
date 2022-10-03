@@ -16,6 +16,7 @@ export default class STower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'S',
       grade: TOWER_GRADE.UNIQUE,

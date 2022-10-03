@@ -15,7 +15,7 @@ type Comb<T> = {
   src: Stuff<T>[]
 }
 
-type TowerComb = Comb<typeof Tower>
+export type TowerComb = Comb<typeof Tower>
 
 const createSelector = (list: TowerComb[]) => (tower: typeof Tower) => list.find((towerComb) => towerComb.dest === tower)
 
@@ -27,4 +27,19 @@ const towerCombList = [
   ...uniqueTowerCombList, // a
 ]
 
-export const getTowerComb = createSelector(towerCombList)
+const firstSrcToCombMap = new Map<typeof Tower, TowerComb[]>()
+
+towerCombList.forEach((towerComb) => {
+  const key = towerComb.src[0]?.unit
+  const value = towerComb
+  if (!key) return
+
+  const list = firstSrcToCombMap.get(key)
+  if (!list) return firstSrcToCombMap.set(key, [value])
+
+  list.push(value)
+})
+
+export const getTowerCombListBySrc = (towerClass: typeof Tower) => firstSrcToCombMap.get(towerClass) || []
+
+export const getTowerCombByDest = createSelector(towerCombList)

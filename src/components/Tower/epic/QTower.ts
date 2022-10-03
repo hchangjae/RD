@@ -16,6 +16,7 @@ export default class QTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'Q',
       grade: TOWER_GRADE.EPIC,

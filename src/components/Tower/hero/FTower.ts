@@ -16,6 +16,7 @@ export default class FTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'F',
       grade: TOWER_GRADE.HERO,

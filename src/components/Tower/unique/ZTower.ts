@@ -16,6 +16,7 @@ export default class ZTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'Z',
       grade: TOWER_GRADE.UNIQUE,

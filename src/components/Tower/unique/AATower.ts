@@ -16,6 +16,7 @@ export default class AATower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'AA',
       grade: TOWER_GRADE.UNIQUE,

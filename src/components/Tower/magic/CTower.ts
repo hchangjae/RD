@@ -16,6 +16,7 @@ export default class CTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'C',
       grade: TOWER_GRADE.MAGIC,

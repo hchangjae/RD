@@ -11,7 +11,7 @@ const width = Math.min(window.innerWidth, window.innerHeight, 700) * 0.8
 const config: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   width: width,
-  height: width,
+  height: width * 1.1,
   scene: [LoadScene, MainScene, UIScene],
   plugins: {
     global: [

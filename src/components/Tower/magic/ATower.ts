@@ -16,6 +16,7 @@ export default class ATower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'A',
       grade: TOWER_GRADE.MAGIC,

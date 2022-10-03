@@ -16,6 +16,7 @@ export default class HTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'H',
       grade: TOWER_GRADE.INFINITE,

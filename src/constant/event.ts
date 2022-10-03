@@ -3,4 +3,5 @@ export const enum EVENT {
   DRAG_START = 'dragstart',
   DRAG_END = 'dragend',
   DRAG = 'drag',
+  TOUCH_UP = 'pointerup',
 }

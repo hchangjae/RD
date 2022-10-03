@@ -16,6 +16,7 @@ export default class DTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'D',
       grade: TOWER_GRADE.HIDDEN,

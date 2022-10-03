@@ -16,6 +16,7 @@ export default class ADTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'AD',
       grade: TOWER_GRADE.EPIC,

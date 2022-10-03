@@ -28,7 +28,7 @@ type InitialTowerModuleMap = {}
 type PendingTowerModuleMap = Record<TOWER_GRADE, Promise<Tower>>
 type FullfilTowerModuleMap = Record<TOWER_GRADE, Tower>
 type TowerModuleMap = InitialTowerModuleMap | PendingTowerModuleMap | FullfilTowerModuleMap
-let towerModuleMap: TowerModuleMap = {}
+const towerModuleMap: TowerModuleMap = {}
 
 type RandomTowerProps = {
   scene: Scene
@@ -60,4 +60,8 @@ const bindModule = (res: any) => async (key: TOWER_GRADE, index: number) => {
   if (isLast(index)) res(towerModuleMap)
 }
 
+export const mapTowerToClass = (tower: Tower) => {
+  const classList = Object.values(towerModuleMap as FullfilTowerModuleMap).flatMap(Object.values)
+  return classList.find((towerClass) => towerClass.prototype.isPrototypeOf(tower)) as typeof Tower
+}
 export const loadTowerModules = () => new Promise((res) => keys.forEach(bindModule(res)))

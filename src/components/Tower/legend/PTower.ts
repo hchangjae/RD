@@ -16,6 +16,7 @@ export default class PTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'P',
       grade: TOWER_GRADE.LEGEND,

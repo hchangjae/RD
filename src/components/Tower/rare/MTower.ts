@@ -16,6 +16,7 @@ export default class MTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'M',
       grade: TOWER_GRADE.RARE,

@@ -15,6 +15,7 @@ export type TowerProps = {
   size: number
   grade: TOWER_GRADE
   text: string
+  isOnlyDisplay?: boolean
 }
 
 export default class Tower extends GameObjects.Text {
@@ -23,9 +24,9 @@ export default class Tower extends GameObjects.Text {
   protected isDrag: boolean
   protected dx: number
   protected dy: number
-  protected particleManager: ParticleManager
+  protected particleManager?: ParticleManager
   protected amount: number
-  protected amountDisplay: GameObjects.Container
+  protected amountDisplay?: GameObjects.Container
 
   readonly weapon: Weapon
   readonly grade: TOWER_GRADE
@@ -35,7 +36,7 @@ export default class Tower extends GameObjects.Text {
       throw new TypeError('Cannot construct Abstract instances directly')
     }
 
-    const { scene, weapon, skills, size, grade, text } = props
+    const { scene, weapon, skills, size, grade, text, isOnlyDisplay } = props
     const [width, height] = getWH(scene)
     const [x, y] = [width * randomWithPadding(LOCATION_PADDING), height * randomWithPadding(LOCATION_PADDING)]
     const color = mapGradeToColor(grade)
@@ -51,16 +52,15 @@ export default class Tower extends GameObjects.Text {
     this.dx = 0
     this.dy = 0
 
+    if (isOnlyDisplay) return
+
     this.particleManager = new ParticleManager({ scene, text, color })
     this.amountDisplay = new GameObjects.Container(scene, x, y)
 
-    // const amountBackground = new GameObjects.Graphics(scene, { x: this.width / 5.4, y: this.width / 5.4 })
     const amountText = new GameObjects.Text(scene, this.width, -2, '1', { color: 'white', font: `700 ${size / 2}px Arial` })
 
-    // this.scene.add.existing(amountBackground)
     this.scene.add.existing(amountText)
 
-    // this.amountDisplay.add(amountBackground)
     this.amountDisplay.add(amountText)
 
     amountText.update = () => {
@@ -85,7 +85,7 @@ export default class Tower extends GameObjects.Text {
   }
 
   destroy(fromScene?: boolean | undefined): void {
-    this.amountDisplay.destroy(fromScene)
+    if (this.amountDisplay) this.amountDisplay.destroy(fromScene)
     super.destroy(fromScene)
   }
 
@@ -93,18 +93,27 @@ export default class Tower extends GameObjects.Text {
     this.amount += amount
   }
 
+  decAmount(amount: number = 1) {
+    this.amount -= amount
+    if (this.amount <= 0) this.destroy(true)
+  }
+
+  getAmount() {
+    return this.amount
+  }
+
   update(time: number, delta: number): void {
     this.weapon.update(time, delta)
-    this.amountDisplay.update(time, delta)
-    this.amountDisplay.list.forEach((v) => v.update(time, delta))
+    this.amountDisplay?.update(time, delta)
+    this.amountDisplay?.list.forEach((v) => v.update(time, delta))
 
-    this.amountDisplay.setX(this.x)
-    this.amountDisplay.setY(this.y)
+    this.amountDisplay?.setX(this.x)
+    this.amountDisplay?.setY(this.y)
 
     // 공격
     if (this.target && this.weapon.canFire()) {
       const target = this.target
-      this.particleManager.fire(target.x, target.y, this.amount)
+      this.particleManager?.fire(target.x, target.y, this.amount)
 
       // 기본 공격
       this.weapon.fire(target, this.amount)

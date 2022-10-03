@@ -16,6 +16,7 @@ export default class XTower extends Tower {
     })
 
     const towerProps = {
+      ...props,
       scene: scene,
       text: 'X',
       grade: TOWER_GRADE.UNIQUE,
